@@ -1,0 +1,37 @@
+PODS:
+  - Flutter (1.0.0)
+  - lottie-ios (4.4.3)
+  - smile_id (10.2.2):
+    - Flutter
+    - SmileID (= 10.2.2)
+  - SmileID (10.2.2):
+    - lottie-ios (~> 4.4.2)
+    - Zip (~> 2.1.0)
+  - Zip (2.1.2)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - smile_id (from `.symlinks/plugins/smile_id/ios`)
+
+SPEC REPOS:
+  trunk:
+    - lottie-ios
+    - SmileID
+    - Zip
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  smile_id:
+    :path: ".symlinks/plugins/smile_id/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
+  smile_id: 6d62c54b3fcf0e2fb685c33b28c868477244ac54
+  SmileID: 9d95463475f933422b2ce136474813b528dbedb7
+  Zip: b3fef584b147b6e582b2256a9815c897d60ddc67
+
+PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
+
+COCOAPODS: 1.13.0
