@@ -54,9 +54,8 @@ import 'package:smile_id/smile_id_smart_selfie_enrollment.dart';
 import 'package:smile_id/smileid_messages.g.dart';
 
 void main() {
-  runApp(
-    const SmileHome(),
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const SmileHome());
 }
 
 class SmileHome extends StatefulWidget {
@@ -85,6 +84,7 @@ class _SmileHomeState extends State<SmileHome> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Smile ID",
       // MainContent requires its own BuildContext for Navigator to work, hence it is defined as its
       // own widget

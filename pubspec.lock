@@ -156,10 +156,10 @@ packages:
     dependency: "direct main"
     description:
       name: smile_id
-      sha256: cea0e4cde2a11d3c3292e81a8d7ab0c849e411cd1faf7c3aeeedaef64ec03e91
+      sha256: "2f5e73778d9be9a824e6f826f5c44290c40f46450d11241f888a59add75ea622"
       url: "https://pub.dev"
     source: hosted
-    version: "10.1.5"
+    version: "10.1.6"
   source_span:
     dependency: transitive
     description:

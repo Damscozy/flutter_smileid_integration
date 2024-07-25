@@ -1,4 +1,4 @@
-package com.example.flutter_smileid_integration
+package com.damscozy.flutterSmileidIntegration
 
 import io.flutter.embedding.android.FlutterActivity
 
