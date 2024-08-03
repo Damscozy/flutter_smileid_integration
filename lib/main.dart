@@ -1,48 +1,5 @@
-// import 'dart:async';
-
-// import 'package:flutter/material.dart';
-// import 'package:smile_id/smile_id.dart';
-
-// import 'main_content.dart';
-
-// void main() {
-//   runApp(const SmileHome(),);
-// }
-
-// class SmileHome extends StatefulWidget {
-//   const SmileHome({super.key},);
-
-//   @override
-//   State<SmileHome> createState() => _SmileHomeState();
-// }
-
-// class _SmileHomeState extends State<SmileHome> {
-//   @override
-//   void initState() {
-//     super.initState();
-//     SmileID.initialize();
-//     // initPlatformState();
-//   }
-
-//   // Platform messages are asynchronous, so we initialize in an async method.
-//   Future<void> initPlatformState() async {
-//     // If the widget was removed from the tree while the asynchronous platform
-//     // message was in flight, we want to discard the reply rather than calling
-//     // setState to update our non-existent appearance.
-//     if (!mounted) return;
-//     SmileID.initialize();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       title: "Smile ID",
-//       home: MainContent(),
-//     );
-//   }
-// }
-
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:smile_id/smile_id.dart';
@@ -75,7 +32,7 @@ class _SmileHomeState extends State<SmileHome> {
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
     // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
+    // message was in fliNGt, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
     if (!mounted) return;
     SmileID.initialize();
@@ -105,7 +62,7 @@ class MyScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const BackButton(),
+        // leading: const BackButton(),
         title: const Text("Smile ID"),
       ),
       body: body,
@@ -119,18 +76,19 @@ class MainContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyScaffold(
-        body: Center(
-      child: Column(
-        children: [
-          enhancedKycAsyncButton(),
-          documentVerificationButton(context),
-          enhancedDocumentVerificationButton(context),
-          smartSelfieEnrollmentButton(context),
-          smartSelfieAuthenticationButton(context),
-          biometricKycButton(context)
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            enhancedKycAsyncButton(),
+            documentVerificationButton(context),
+            enhancedDocumentVerificationButton(context),
+            smartSelfieEnrollmentButton(context),
+            smartSelfieAuthenticationButton(context),
+            biometricKycButton(context)
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget enhancedKycAsyncButton() {
@@ -150,21 +108,22 @@ class MainContent extends StatelessWidget {
               (authResponse) => {
                 SmileID.api.doEnhancedKycAsync(
                   FlutterEnhancedKycRequest(
-                      country: "GH",
-                      idType: "DRIVERS_LICENSE",
-                      idNumber: "B0000000",
-                      callbackUrl: "https://somedummyurl.com/demo",
-                      partnerParams: FlutterPartnerParams(
-                        jobType: FlutterJobType.enhancedKyc,
-                        jobId: userId,
-                        userId: userId,
-                      ),
-                      timestamp: authResponse!.timestamp,
-                      signature: authResponse.signature),
+                    country: "NG",
+                    idType: "DRIVERS_LICENSE",
+                    idNumber: "B0000000",
+                    callbackUrl: "https://somedummyurl.com/demo",
+                    partnerParams: FlutterPartnerParams(
+                      jobType: FlutterJobType.biometricKyc,
+                      jobId: userId,
+                      userId: userId,
+                    ),
+                    timestamp: authResponse!.timestamp,
+                    signature: authResponse.signature,
+                  ),
                 )
               },
               onError: (error) => {
-                debugPrint("error: $error"),
+                log("error: $error"),
               },
             );
       },
@@ -179,7 +138,7 @@ class MainContent extends StatelessWidget {
           MaterialPageRoute<void>(
             builder: (BuildContext context) => MyScaffold(
               body: SmileIDDocumentVerification(
-                countryCode: "GH",
+                countryCode: "NG",
                 documentType: "DRIVERS_LICENSE",
                 onSuccess: (String? result) {
                   // Your success handling logic
@@ -213,7 +172,7 @@ class MainContent extends StatelessWidget {
           MaterialPageRoute<void>(
             builder: (BuildContext context) => MyScaffold(
               body: SmileIDEnhancedDocumentVerification(
-                countryCode: "GH",
+                countryCode: "NG",
                 documentType: "DRIVERS_LICENSE",
                 onSuccess: (String? result) {
                   // Your success handling logic
@@ -311,7 +270,7 @@ class MainContent extends StatelessWidget {
           MaterialPageRoute<void>(
             builder: (BuildContext context) => MyScaffold(
               body: SmileIDBiometricKYC(
-                country: "KE",
+                country: "NG",
                 idType: "NATIONAL_ID",
                 idNumber: "12345678",
                 onSuccess: (String? result) {
